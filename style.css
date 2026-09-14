@@ -1,0 +1,13 @@
+body {
+    background-color: #2f3e4f;
+}
+
+.legend {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: 900;
+    font-family: monospace;
+    background-size: 20%;
+}
