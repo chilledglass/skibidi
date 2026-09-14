@@ -4,10 +4,15 @@ body {
 
 .legend {
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     color: white;
     font-weight: 900;
     font-family: monospace;
-    background-size: 20%;
+    padding: 16px;
+}
+
+.legend img {
+    width: 20%;
 }
