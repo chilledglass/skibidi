@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="{{ '/style.css' | relative_url }}">
+
+    <title>
+        {% if page.title %}
+            {{ page.title }} — {{ site.title }}
+        {% else %}
+            {{ site.title }}
+        {% endif %}
+    </title>
+</head>
+
+<body>
+
+    <section class="navbar">
+        <h1>Welcome to my spot</h1>
+
+        <nav>
+            <a href="{{ '/' | relative_url }}">Home</a>
+            <a href="{{ '/archive/' | relative_url }}">Archive</a>
+            <a href="https://skibidi.fyi">Leave</a>
+        </nav>
+    </section>
+
+    {{ content }}
+
+    <section class="footer">
+        <h4>Created by ser</h4>
+    </section>
+
+</body>
+</html>

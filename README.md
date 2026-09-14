@@ -1,2 +1,2 @@
 # skibidi
-The skibidi toilet website
+My website for all my musings and brainrot etc.

@@ -1,0 +1,33 @@
+---
+layout: default
+---
+
+<section class="quote">
+
+    <time datetime="{{ page.date | date_to_xmlschema }}">
+        {{ page.date | date: "%-d %B %Y" }}
+    </time>
+
+    <h2>{{ page.title }}</h2>
+
+    <div class="entry-content">
+        {{ content }}
+    </div>
+
+</section>
+
+<section class="post-navigation">
+
+    {% if page.previous %}
+        <a href="{{ page.previous.url | relative_url }}">
+            ← {{ page.previous.title }}
+        </a>
+    {% endif %}
+
+    {% if page.next %}
+        <a href="{{ page.next.url | relative_url }}">
+            {{ page.next.title }} →
+        </a>
+    {% endif %}
+
+</section>

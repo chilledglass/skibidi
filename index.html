@@ -1,57 +1,25 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <title>Those who know</title>
-</head>
-<body>
-    <audio autoplay loop>
-        <source src="audio/Investigations.mp3" type="audio/mpeg">
-    </audio>
+---
+layout: default
+---
 
+{% assign latest = site.posts.first %}
 
-    <section class="legend">
-        <h1>Welcome to my website</h1>
-        <p>I hate revels</p>
-        <rb>Hey beanos</rb>
-        <img src="images/toilet.jpg">
-    </section>
+<section class="quote">
 
-    <section class="brainrot">
-        <h2>What if we could fly?</h2>
-        <a href="https://youtu.be/zFpTYCZiZQY?si=3pze6Vxs6NqasguF&t=16" target="_blank"><img src="images/tung.jpg"></a>
-        <p>Will the skibidi toilet people knock for my door for using copyrighted material?</p>
-    </section>
+    <time datetime="{{ latest.date | date_to_xmlschema }}">
+        {{ latest.date | date: "%-d %B %Y" }}
+    </time>
 
-    <section class="skeleton">
-        <div>
-            <a href="https://youtu.be/SUlvYDgakns?si=xNel1bmqXitDh3Ya&t=1753" target="_blank"><img src="images/skeleton.gif"></a>
-        </div>
-    </section>
+    <h2>{{ latest.title }}</h2>
 
-    <section class="cards">
-        <div class="card">
-            <h3>Fact</h3>
-            <p>There's letters in a word</p>
-        </div>
-        <div class="card">
-            <h3>Question</h3>
-            <p>Here me out what if the guy. Did you know that<br>I give up</p>
-        </div>
-        <div class="card">
-            <h3>Observation</h3>
-            <p>There's some words on the page</p>
-        </div>
-    </section>
+    <div class="entry-content">
+        {{ latest.content }}
+    </div>
 
-    <section class="hint">
-        <h1>There's a skeleton walking find him and watch the full video to unlock the rest of this page.</h1>
-    </section>
+</section>
 
-    <section class="portal">
-        <a href="https://en.wikipedia.org/wiki/Revels_(confectionery)" target="_blank"><img src="images/door.png"></a>
-    </section>
-</body>
-</html>
+<div class="home-archive">
+    <a href="{{ '/archive/' | relative_url }}">
+        View all entries →
+    </a>
+</div>
