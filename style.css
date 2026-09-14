@@ -1,44 +1,45 @@
+* {
+    box-sizing: border-box;
+}
+
 body {
     background-color: #2f3e4f;
     background-image: url("images/money.gif");
     background-size: cover;
-    margin-left: 25%;
-    margin-right: 25%;
-    margin-top: 32px;
-    margin-bottom: 32px;
+    background-position: center;
+    background-attachment: fixed;
+
+    margin: 32px auto;
+    width: 90%;
+    max-width: 1000px;
 }
 
-.legend {
+.legend, .brainrot {
     background-color: #808ca8;
+    width: 70%;
+    margin-left: auto;
+    margin-right: auto;
+
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+
     color: #f0f1f2;
     font-family: monospace;
-    padding: 16px;
-    margin-bottom: 16px;
+    padding: 8px;
+    margin-bottom: 8px;
 }
 
 .legend img {
     width: 30%;
-}
-
-.brainrot {
-    background-color: #808ca8;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    color: #f0f1f2;
-    font-family: monospace;
-    padding: 16px;
-    margin-bottom: 16px;
+    max-width: 300px;
 }
 
 .brainrot img {
     display: block;
     width: 25%;
+    max-width: 250px;
     margin: 0 auto;
 }
 
@@ -54,6 +55,7 @@ body {
 
 .skeleton img {
     display: block;
-    width: 10%;
+    width: 15%;
+    max-width: 200px;
     margin: 0 auto;
 }
