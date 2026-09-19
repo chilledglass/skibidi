@@ -1,0 +1,25 @@
+---
+layout: default
+---
+
+{% assign latest = site.posts.first %}
+
+<section class="quote">
+
+    <time datetime="{{ latest.date | date_to_xmlschema }}">
+        {{ latest.date | date: "%-d %B %Y" }}
+    </time>
+
+    <h2>{{ latest.title }}</h2>
+
+    <div class="entry-content">
+        {{ latest.content }}
+    </div>
+
+</section>
+
+<div class="home-archive">
+    <a href="{{ '/archive/' | relative_url }}">
+        View all entries →
+    </a>
+</div>
