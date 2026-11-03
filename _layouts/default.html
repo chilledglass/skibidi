@@ -74,7 +74,7 @@
 
   async function checkServer() {
     try {
-      const res = await fetch(`https://api.mcsrvstat.us/3/${SERVER}`);
+      const res = await fetch(`https://api.mcstatus.io/v2/status/java/${SERVER}`);
       const d = await res.json();
 
       if (d.online) {
@@ -96,6 +96,7 @@
   checkServer();
   setInterval(checkServer, 60000); // refresh every minute
 </script>
+
 
     <section class="footer">
         <h4>Created by Kaiser</h4>
