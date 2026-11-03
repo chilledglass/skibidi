@@ -29,6 +29,74 @@
 
     {{ content }}
 
+<style>
+  .mc-status {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 16px;
+    border-radius: 999px;
+    background: #1e1e24;
+    color: #f2f2f2;
+    font: 500 15px/1 system-ui, sans-serif;
+    border: 1px solid #33333d;
+  }
+  .mc-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: #888;
+  }
+  .mc-status.online .mc-dot {
+    background: #3ddc84;
+    box-shadow: 0 0 8px #3ddc84;
+    animation: mc-pulse 2s infinite;
+  }
+  .mc-status.offline .mc-dot { background: #ef4444; }
+  .mc-sub { opacity: 0.6; font-weight: 400; }
+  @keyframes mc-pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.4; }
+  }
+</style>
+
+<div class="mc-status" id="mc-status">
+  <span class="mc-dot"></span>
+  <span id="mc-text">Checking...</span>
+  <span class="mc-sub" id="mc-sub"></span>
+</div>
+
+<script>
+  const SERVER = "mc.skibidi.fyi";
+  const box = document.getElementById("mc-status");
+  const text = document.getElementById("mc-text");
+  const sub = document.getElementById("mc-sub");
+
+  async function checkServer() {
+    try {
+      const res = await fetch(`https://api.mcsrvstat.us/3/${SERVER}`);
+      const d = await res.json();
+
+      if (d.online) {
+        box.className = "mc-status online";
+        text.textContent = "Online";
+        sub.textContent = `${d.players?.online ?? 0}/${d.players?.max ?? "?"} players`;
+      } else {
+        box.className = "mc-status offline";
+        text.textContent = "Offline";
+        sub.textContent = "";
+      }
+    } catch (e) {
+      box.className = "mc-status";
+      text.textContent = "Status unknown";
+      sub.textContent = "";
+    }
+  }
+
+  checkServer();
+  setInterval(checkServer, 60000); // refresh every minute
+</script>
+
     <section class="footer">
         <h4>Created by Kaiser</h4>
     </section>
